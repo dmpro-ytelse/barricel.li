@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Barricelli - A high-performance genetic algorithms computer
+        </title>
+        <meta charset=utf8> 
+        <meta name=viewport content="width=device-width, initial-scale=1.0">
+        <meta name=apple-mobile-web-app-capable content=yes />
+        <meta name=apple-mobile-web-app-status-bar-style content=black>
+        <link href=http://fonts.googleapis.com/css?family=Raleway:400,900 rel=stylesheet type=text/css>
+        <link href=css/responsiveslides.css rel=stylesheet type=text/css>
+        <script src=js/jquery-2.0.3.min.js></script>
+        <script src=js/responsiveslides.min.js></script>
+    </head>
+    <style>
+        * {
+            font-family: Raleway;
+            padding: 0;
+            margin: 0;
+        }
+
+        html {
+            background: #abcae2 url(img/bg.jpg) no-repeat right center fixed;
+            background-size: cover;
+        }
+
+        h1, h2, h3 {
+            font-size: 100px;
+            color: white;
+            text-align: center;
+            margin: 20px auto;
+            background: rgba(0,0,0,0.7);
+            padding: 15px;
+        }
+
+        h2 {
+            font-weight: normal;
+            font-size: 20px;
+            width: 600px;
+        }
+
+        h1{
+            text-transform: uppercase;
+            width: 900px;
+        }
+
+        h3 a {
+            color: white;
+            text-decoration: none;
+        }
+
+        header {
+            margin-top: 200px;
+        }
+
+        footer {
+            text-align: center;
+        }
+
+        .content {
+            background: rgba(255, 255, 255, 0.95);
+            width: 900px;
+            margin: 100px auto;
+            padding: 15px;
+            color: #333;
+            line-height: 34px;
+            font-size: 20px;
+            position: relative;
+
+        }
+
+        .content p {
+            padding: 15px 40px;
+        }
+
+        .content h3 {
+            font-size: 20px; 
+            text-transform: uppercase;
+            position: absolute;
+            right: 0;
+            text-align: right;
+            white-space: nowrap;
+            margin-right: 900px;
+            margin-top: 0px;
+        }
+
+        #the-images h3 {
+            padding-right: 20px;
+        }
+
+        #the-authors ul {
+            padding: 15px 40px;
+            margin-left: -15px;
+            margin-right: -15px;
+            overflow: hidden;
+        }
+
+        #the-authors li {
+            position: relative;
+            width: calc(50% - 30px);
+            box-sizing: border-box;
+            display: block;
+            height: 200px;
+            margin: 15px;
+            float: left;
+            background: #fdfefc;
+            border: 1px solid #dadada;
+            padding: 15px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        #the-authors img {
+            float: right;
+            width: 170px;
+            margin-left: 15px;
+        }
+
+        #the-authors .github {
+            position: absolute;
+            left: 15px;
+            bottom: 15px;
+        }
+
+        #the-authors a {
+            text-decoration: none;
+        }
+
+        #the-authors .github img {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            float: left;
+            margin-top: 5px;
+            margin-right: 10px;
+            margin-left: 0;
+            opacity: 0.5;
+        }
+
+        #the-authors .github:hover img {
+            opacity: 1;
+        }
+
+.caption {
+  position: absolute;
+  display: block;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 15px;
+  text-align: center;
+  background: #000;
+  background: rgba(0,0,0, .7);
+  color: #fff;
+}
+
+.rslides {
+    background: black;
+}
+
+.rslides img {
+    float: none;
+    margin: 0 auto;
+}
+
+.rslides_tabs {
+  background: rgba(0,0,0,.7);
+  font-weight: normal;
+  font-size: 18px;
+  list-style: none;
+  text-align: center;
+  width: 100%;
+}
+
+.rslides_tabs li {
+  display: inline;
+  float: none;
+  margin-right: 1px;
+}
+
+.rslides_tabs a {
+  width: auto;
+  line-height: 20px;
+  padding: 10px 20px;
+  height: auto;
+  background: transparent;
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+}
+
+.rslides_tabs li:first-child {
+  margin-left: 0;
+}
+
+.rslides_tabs .rslides_here a {
+  background: rgba(255,255,255,.1);
+  color: #fff;
+}
+
+
+        @media only screen and (max-width: 1600px) {
+            .content, h1 {
+                width: 650px;
+            }
+            h2 {
+                width: 500px;
+            }
+            .content h3 {
+                margin-right: 650px;
+            }
+
+            #the-authors li {
+                width: calc(100% - 30px);
+            }
+        }
+        @media only screen and (max-width: 1000px) {
+            .content h3 {
+                left: 0;
+                right: auto;
+                margin-top: -79px;
+            }
+        }
+
+        @media only screen and (max-width: 700px) {
+            html {
+                background-position: -1000px center;
+            }
+            header {
+                margin-top: 100px;
+            }
+            .content, h1 {
+                width: 340px;
+            }
+            h1 {
+                font-size: 58px;
+            }
+            h2 {
+                width: 300px;
+            }
+            .content h3 {
+                margin-right: 450px;
+            }
+            #the-authors .name {
+                margin-top: 233px;
+            }
+            #the-authors li {
+                height: 330px;
+            }
+            #the-authors img {
+                display: block;
+                width: 100%;
+            }
+        }
+
+    </style>
+    <body>
+        <header>
+            <h1>Barricelli</h1>
+            <h2>A high-performance genetic algorithms computer</h2>
+        </header>
+
+        <div class=content>
+            <p>
+            Barricelli is the name of a specialized genetic algorithms computer designed and built by 10 students at the Norwegian University of Science and Technology.
+            It is a computer designed to quickly find good approximations to hard problems using a custom-made hardware-accelerated generic genetic algorithm solver.
+            </p>
+            <p>
+            Barricelli was built over a period of 12 weeks.
+            </p>
+        </div>
+
+        <div id=the-images class=content>
+            <h3>
+                <a href=#the-images>The Images</a>
+            </h3>
+            <ul class=rslides>
+                <li><img src=img/1.jpg><p class=caption>
+                    Precision work.
+                </p></li>
+                <li><img src=img/2.jpg><p class=caption>
+                    The naked Barricelli computer.
+                </p></li>
+                <li><img src=img/3.jpg><p class=caption>
+                    Close-up of a half-soldered board.
+                    The black towers to the left are passive cooling elements.
+                </p></li>
+                <li><img src=img/4.jpg><p class=caption>
+                    Wiring of the cabinet front-panel LEDs.
+                </p></li>
+                <li><img src=img/5.jpg><p class=caption>
+                    Ghetto-celli: the Barricelli case with development boards crammed inside as a backup, should the PCB fail.
+                </p></li>
+                <li><img src=img/6.jpg><p class=caption>
+                    Measuring the voltage over Barricelli's right eye.
+                </p></li>
+                <li><img src=img/7.jpg><p class=caption>
+                    Those eyes.
+                </p></li>
+            </ul>
+        </div>
+
+        <div id=the-name class=content>
+            <h3><a href=#the-name>The Name</a></h3>
+            <p>
+            Barricelli is named after Nils Aall Barricelli, who was a Norwegian-Italian 20th century mathematician.
+Barricelli the mathematician was a pioneer in artificial life research, and he performed early computer-assisted experiments in the symbiogenesis and evolution fields.
+It is in recognition of Barricelli the mathematician's groundbreaking seminal work that Barricelli the computer takes its name.
+            </p>
+        </div>
+
+        <div id=the-paper class=content>
+            <h3><a href=#the-paper>The Paper</a></h3>
+            <p>
+            The paper describing the inner workings of the Barricelli, as well as detailing the work process, is available for download <a href>here</a>.
+            </p>
+        </div>
+
+        <div id=the-authors class=content>
+            <h3><a href=#the-authors>The Authors</a></h3>
+            <p>
+                The creators of the Barricelli computer are listed here, in alphabetical order:
+            </p>
+            <ul>
+                <li>
+                    <img src=https://2.gravatar.com/avatar/842eaab66567cd915e849dab38f5a15a?r=x&s=170>
+                    <div class=name>Emil Taylor Bye</div>
+                    <a href=//github.com/emiltayl class=github>
+                        <img src=img/github.png>emiltayl</a>
+                </li>
+                <li>
+                    <img src=//2.gravatar.com/avatar/ea3b7f851de36cb2956ec2d04f517be8?r=x&s=170>
+                    <div class=name>Fedor Fadeev</div>
+                    <a href=//github.com/fedyaFade class=github>
+                        <img src=img/github.png>fedyaFade</a>
+                </li>
+                <li>
+                    <img src=//1.gravatar.com/avatar/fa444115c532bce4d29d808ca04ceba9?r=x&s=170>
+                    <div class=name>Sigve Sebastian Farstad</div>
+                    <a href=//github.com/sigvef class=github>
+                        <img src=img/github.png>sigvef</a>
+                </li>
+                <li>
+                    <img src=//2.gravatar.com/avatar/e5c04854fe64578e28d6a5d7e4233fd9?r=x&s=170>
+                    <div class=name>Péter Gombos</div>
+                    <a href=//github.com/calibwam class=github>
+                        <img src=img/github.png>calibwam</a>
+                </li>
+
+                <li>
+                    <img src=https://identicons.github.com/2dd2b884cba3b3df6075dd58c2ef3fa4.png>
+                    <div class=name>Rune Holmgren</div>
+                    <a href=//github.com/Raane class=github>
+                        <img src=img/github.png>Raane</a>
+                </li>
+                <li>
+                    <img src=//identicons.github.com/706f04f661d7db4f0b979960c27358a8.png>
+                    <div class=name>Torbjørn Langland</div>
+                    <a href=//github.com/Sygnious class=github>
+                        <img src=img/github.png>Sygnious</a>
+                </li>
+                <li>
+                    <img src=//0.gravatar.com/avatar/e7d672cf5c13a74b9cd5fb578dc4c088?r=x&s=170>
+                    <div class=name>Per Thomas Lundal</div>
+                    <a href=//github.com/zirgon class=github>
+                        <img src=img/github.png>zirgon</a>
+                </li>
+                <li>
+                    <img src=//2.gravatar.com/avatar/fdecfdb520f4406ebfe7eed9433bc9f3?r=x&s=170>
+                    <div class=name>Odd Magnus Trondrud</div>
+                    <a href=//github.com/otron class=github>
+                        <img src=img/github.png>otron</a>
+                </li>
+                <li>
+                    <img src=//0.gravatar.com/avatar/d6696b35472b924a970a904a8b0f10e4?r=x&s=170>
+                    <div class=name>Bjørn Åge Tungesvik</div>
+                    <a href=//github.com/bj0rn class=github>
+                        <img src=img/github.png>bj0rn</a>
+                </li>
+                <li>
+                    <img src=//identicons.github.com/faa5ab9548033723523bc8e93ee09fcd.png>
+                    <div class=name>Eirik Flogard</div>
+                    <a href=//github.com/eiriklf class=github>
+                        <img src=img/github.png>eiriklf</a>
+                </li>
+            </ul>
+        </div>
+
+<footer>
+Background image adapted from
+<a href=//www.flickr.com/photos/15184749@N04/10962252886>
+a photo
+</a>
+by
+<a href=//www.flickr.com/photos/kaitorge/>
+Kai Torgeir Dragland</a>.
+</footer>
+
+<script>
+  $(function() {
+    $('.rslides').responsiveSlides({
+        pager: true,
+        pauseControls: true,
+        timeout: 10000,
+        before: function(i){
+            $('.rslides img').each(function(){
+                console.log(this.height);
+                if(this.height > 506) {
+                    var ratio = 506 / this.height;
+                    var width = ratio * this.width;
+                    this.style.width = width + 'px';
+                    this.width = width;
+                    this.height = 506;
+                }
+            });
+        }
+    });
+  });
+</script>
+
+    </body>
+</html>
